@@ -28,6 +28,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace Ehough\ChainGang\Impl;
+use Ehough\ChainGang\Api\Chain;
+use Ehough\ChainGang\Api\Command;
+use Ehough\ChainGang\Api\Context;
+use Ehough\ChainGang\Api\Exception\IllegalStateException;
 
 /**
  * A Chain represents a configured list of Commands that will be executed in order to
@@ -41,7 +46,7 @@
  * a Command is expected. This makes it easy to assemble workflows in a hierarchical
  * manner by combining subchains into an overall processing chain.
  */
-class ehough_chaingang_impl_StandardChain implements ehough_chaingang_api_Chain
+class StandardChain implements Chain
 {
     private $_commands = array();
 
@@ -54,19 +59,19 @@ class ehough_chaingang_impl_StandardChain implements ehough_chaingang_api_Chain
      * execute() method is called. Once execute() has been called at least once, it is no
      * longer possible to add additional Commands; instead, an exception will be thrown.
      *
-     * @param ehough_chaingang_api_Command $command The Command to be added.
+     * @param Command $command The Command to be added.
      *
      * @return void
      *
-     * @throws ehough_chaingang_api_exception_IllegalStateException If this Chain has already
+     * @throws IllegalStateException If this Chain has already
      *                                                              been executed at least once,
      *                                                              so no further configuration is allowed.
      */
-    public final function addCommand(ehough_chaingang_api_Command $command)
+    public final function addCommand(Command $command)
     {
         if ($this->_frozen) {
 
-            throw new ehough_chaingang_api_exception_IllegalStateException('Chain is frozen.');
+            throw new IllegalStateException('Chain is frozen.');
         }
 
         array_push($this->_commands, $command);
@@ -79,13 +84,13 @@ class ehough_chaingang_impl_StandardChain implements ehough_chaingang_api_Chain
      * or delegate remaining processing to the next Command in a Chain containing
      * this Command by returning false.
      *
-     * @param ehough_chaingang_api_Context $context The Context to be processed by this Command.
+     * @param Context $context The Context to be processed by this Command.
      *
      * @return boolean True if the processing of this Context has been completed, or false if the
      *                 processing of this Context should be delegated to a subsequent Command
      *                 in an enclosing Chain.
      */
-    public final function execute(ehough_chaingang_api_Context $context)
+    public final function execute(Context $context)
     {
         $this->_frozen = true;
 

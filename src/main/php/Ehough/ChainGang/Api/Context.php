@@ -29,11 +29,13 @@
  * limitations under the License.
  */
 
+namespace Ehough\ChainGang\Api;
+
 /**
  * A Context represents the state information that is accessed and manipulated
  * by the execution of a Command or a Chain
  */
-interface ehough_chaingang_api_Context
+interface Context
 {
 
     /**

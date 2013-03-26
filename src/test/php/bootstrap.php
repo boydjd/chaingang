@@ -10,7 +10,15 @@
  */
 
 require_once __DIR__ . '/../../../vendor/ehough/pulsar/src/main/php/ehough/pulsar/ComposerClassLoader.php';
+require_once 'SplClassLoader.php';
 
+$loader = new ehough_pulsar_ComposerClassLoader(__DIR__ . '/../../../vendor/');
+$loader->register();
+
+$loader = new SplClassLoader('Ehough', __DIR__ . '/../../main/php');
+$loader->register();
+/*
 $loader = new ehough_pulsar_ComposerClassLoader(__DIR__ . '/../../../vendor/');
 $loader->registerDirectory('ehough_chaingang', __DIR__ . '/../../main/php/');
 $loader->register();
+*/

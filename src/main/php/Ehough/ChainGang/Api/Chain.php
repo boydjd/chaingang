@@ -29,6 +29,9 @@
  * limitations under the License.
  */
 
+namespace Ehough\ChainGang\Api;
+use Ehough\ChainGang\Api\Command;
+
 /**
  * A Chain represents a configured list of Commands that will be executed in order to
  * perform processing on a specified Context. Each included Command will be executed
@@ -41,7 +44,7 @@
  * a Command is expected. This makes it easy to assemble workflows in a hierarchical
  * manner by combining subchains into an overall processing chain.
  */
-interface ehough_chaingang_api_Chain extends ehough_chaingang_api_Command
+interface Chain extends Command
 {
     /**
      * Add a command to this chain.
@@ -50,13 +53,13 @@ interface ehough_chaingang_api_Chain extends ehough_chaingang_api_Command
      * execute() method is called. Once execute() has been called at least once, it is no
      * longer possible to add additional Commands; instead, an exception will be thrown.
      *
-     * @param ehough_chaingang_api_Command $command The Command to be added.
+     * @param Command $command The Command to be added.
      *
      * @return void
      *
-     * @throws ehough_chaingang_api_exception_IllegalStateException If this Chain has already
+     * @throws IllegalStateException If this Chain has already
      *                                                              been executed at least once,
      *                                                              so no further configuration is allowed.
      */
-    function addCommand(ehough_chaingang_api_Command $command);
+    function addCommand(Command $command);
 }

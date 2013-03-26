@@ -9,9 +9,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+namespace Ehough\ChainGang\Api\Exception;
+
 /**
  * Illegal state exception.
  */
-class ehough_chaingang_api_exception_IllegalStateException extends RuntimeException
+class IllegalStateException extends RuntimeException
 {
 }

@@ -29,6 +29,9 @@
  * limitations under the License.
  */
 
+namespace Ehough\ChainGang\Api;
+use Ehough\ChainGang\Api\Context;
+
 /**
  * A Command encapsulates a unit of processing work to be performed, whose
  * purpose is to examine and/or modify the state of a transaction that is
@@ -40,7 +43,7 @@
  * the Context instance that is passed as a parameter to the execute() method,
  * using particular keys into the Map that can be acquired via Context.getAttributes().
  */
-interface ehough_chaingang_api_Command
+interface Command
 {
     /**
      * Commands should return CONTINUE_PROCESSING if the processing of the given
@@ -67,5 +70,5 @@ interface ehough_chaingang_api_Command
      *                 processing of this Context should be delegated to a subsequent Command
      *                 in an enclosing Chain.
      */
-    function execute(ehough_chaingang_api_Context $context);
+    function execute(Context $context);
 }

@@ -9,9 +9,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+namespace Ehough\ChainGang\Impl;
+use Ehough\ChainGang\Impl\StandardChain;
 use \Mockery as m;
 
-final class ehough_chaingang_impl_StandardChainTest extends PHPUnit_Framework_TestCase
+final class StandardChainTest extends \PHPUnit_Framework_TestCase
 {
     private $_sut;
 
@@ -19,13 +21,13 @@ final class ehough_chaingang_impl_StandardChainTest extends PHPUnit_Framework_Te
     {
         parent::setUp();
 
-        $this->_sut = new ehough_chaingang_impl_StandardChain();
+        $this->_sut = new StandardChain();
     }
 
     public function testCommandCanHandle()
     {
-        $context = m::mock('ehough_chaingang_api_Context');
-        $command = m::mock('ehough_chaingang_api_Command');
+        $context = m::mock('Ehough\ChainGang\Api\Context');
+        $command = m::mock('Ehough\ChainGang\Api\Command');
 
         $command->shouldReceive('execute')->with($context)->once()->andReturn(true);
 

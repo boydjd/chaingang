@@ -9,9 +9,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+namespace Ehough\ChainGang\Impl;
+use Ehough\ChainGang\Impl\StandardContext;
 use \Mockery as m;
 
-final class ehough_chaingang_impl_StandardContextTest extends PHPUnit_Framework_TestCase
+final class StandardContextTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var ehough_chaingang_impl_StandardContext
@@ -22,7 +24,7 @@ final class ehough_chaingang_impl_StandardContextTest extends PHPUnit_Framework_
     {
         parent::setUp();
 
-        $this->_sut = new ehough_chaingang_impl_StandardContext();
+        $this->_sut = new StandardContext();
     }
 
     public function testMultipleOps()

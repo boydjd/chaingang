@@ -30,7 +30,7 @@
 
         "psr-0": {
 
-            "ehough_chaingang": "src/main/php"
+            "Ehough": "src/main/php"
         }
     }
 }

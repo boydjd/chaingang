@@ -29,11 +29,14 @@
  * limitations under the License.
  */
 
+namespace Ehough\ChainGang\Impl;
+use Ehough\ChainGang\Api\Context;
+
 /**
  * A Context represents the state information that is accessed and manipulated
  * by the execution of a Command or a Chain
  */
-class ehough_chaingang_impl_StandardContext implements ehough_chaingang_api_Context
+class StandardContext implements Context
 {
     private $_map = array();
 

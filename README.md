@@ -8,20 +8,20 @@
 /*
  * Build some commands.
  */
-$command1 = new MyCommand1();   //implements ehough_chaingang_api_Command
-$command2 = new MyCommand2();   //implements ehough_chaingang_api_Command
+$command1 = new MyCommand1();   //implements Ehough\ChainGang\Api\Command
+$command2 = new MyCommand2();   //implements Ehough\ChainGang\Api\Command
 
 /*
  * Build and assemble the chain.
  */
-$chain = new ehough_chaingang_impl_StandardChain();
+$chain = new Ehough\ChainGang\Impl\StandardChain();
 $chain->addCommand($command1);
 $chain->addCommand($command2);
 
 /*
  * Build the execution context.
  */
-$context = new ehough_chaingang_impl_StandardContext();
+$context = new Ehough\ChainGang\Impl\StandardContext();
 $context->put('foo', 'bar');
 
 /*

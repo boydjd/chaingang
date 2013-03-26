@@ -17,8 +17,3 @@ $loader->register();
 
 $loader = new SplClassLoader('Ehough', __DIR__ . '/../../main/php');
 $loader->register();
-/*
-$loader = new ehough_pulsar_ComposerClassLoader(__DIR__ . '/../../../vendor/');
-$loader->registerDirectory('ehough_chaingang', __DIR__ . '/../../main/php/');
-$loader->register();
-*/
